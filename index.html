@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل Abdo TV - البث المباشر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        :root {
+            --primary: #9D4EDD;
+            --primary-dark: #7B2CBF;
+            --primary-light: #C77DFF;
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --shadow: 0 10px 30px rgba(157, 78, 221, 0.3);
+        }
+        
+        body {
+            background: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        }
+        
+        /* الهيدر */
+        header {
+            background: white;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo i {
+            background: var(--gradient);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* القسم الرئيسي */
+        .hero {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .app-icon {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            background: var(--gradient);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: var(--shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        /* أزرار التحميل */
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(157, 78, 221, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* المميزات */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: #f9f9ff;
+            transition: transform 0.3s;
+            border: 2px solid rgba(157, 78, 221, 0.1);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .feature h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--primary-light);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* قسم تحميل مباشر */
+        .direct-download {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            background: #f5f5f5;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            border: 3px dashed #ddd;
+        }
+        
+        /* رسالة التنبيه */
+        .alert {
+            background: rgba(157, 78, 221, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        /* التجاوب مع الجوال */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .app-icon {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .features {
+                padding: 2rem 1rem;
+            }
+            
+            .direct-download {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        /* تأثيرات */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* شريط التحميل */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.3s;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-tv"></i>
+                <span>Abdo TV</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#features">المميزات</a>
+                <a href="#download">تحميل</a>
+                <a href="#support">الدعم</a>
+                <a href="#contact">اتصل بنا</a>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <div class="app-icon pulse">
+            <i class="fas fa-tv"></i>
+        </div>
+        
+        <h1>Abdo TV</h1>
+        <p>تطبيق البث المباشر الأفضل لمشاهدة القنوات الرياضية والترفيهية. جودة عالية، تحديثات مستمرة، وتجربة مشاهدة فريدة.</p>
+        
+        <div class="download-buttons">
+            <a href="#direct-download" class="btn btn-primary">
+                <i class="fas fa-download"></i>
+                تحميل التطبيق
+            </a>
+            
+            <a href="#features" class="btn btn-secondary">
+                <i class="fas fa-star"></i>
+                المميزات
+            </a>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <p style="color: #666; font-size: 0.9rem;">حجم التطبيق: 25 ميجابايت</p>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="features" id="features">
+        <h2>مميزات التطبيق</h2>
+        
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-satellite-dish"></i>
+                <h3>بث مباشر عالي الجودة</h3>
+                <p>مشاهدة القنوات بجودة Full HD مع خيارات متعددة</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-futbol"></i>
+                <h3>مباريات حية</h3>
+                <p>متابعة جميع المباريات الرياضية مع تحديثات النتائج</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>تحديثات فورية</h3>
+                <p>تحديث تلقائي للمحتوى دون الحاجة لإعادة التحميل</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>متوافق مع جميع الأجهزة</h3>
+                <p>يعمل على الهواتف والأجهزة اللوحية والتلفزيونات الذكية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التحميل المباشر -->
+    <section class="direct-download" id="download">
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">تحميل مباشر</h2>
+        <p style="color: #666; margin-bottom: 2rem;">انقر على الزر أدناه لتحميل التطبيق مباشرة</p>
+        
+        <div class="qr-code">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <p style="color: #888; margin: 1rem 0; font-size: 0.9rem;">أو امسح الكود QR</p>
+        
+        <a href="https://your-link-here.com/app.apk" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;" id="downloadBtn">
+            <i class="fas fa-download"></i>
+            تحميل Abdo TV v2.0
+        </a>
+        
+        <div class="alert">
+            <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem;"></i>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">تثبيت آمن</h3>
+            <p style="color: #666;">يجب تفعيل "مصادر غير معروفة" في إعدادات جهازك قبل تثبيت التطبيق</p>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن التطبيق</h3>
+                <p>Abdo TV هو تطبيق عربي متكامل للبث المباشر، يوفر أفضل تجربة مشاهدة للقنوات الرياضية والترفيهية.</p>
+                <div class="social-icons">
+                    <a href="https://t.me/" class="social-icon" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://whatsapp.com/" class="social-icon" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://youtube.com/" class="social-icon" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul class="footer-links">
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#download">تحميل التطبيق</a></li>
+                    <li><a href="#support">الدعم الفني</a></li>
+                    <li><a href="#privacy">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>الدعم الفني</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-envelope"></i> support@abdotv.com</li>
+                    <li><i class="fas fa-phone"></i> +123456789</li>
+                    <li><i class="fas fa-clock"></i> متاح 24/7</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2024 Abdo TV. جميع الحقوق محفوظة. | الإصدار 2.0</p>
+        </div>
+    </footer>
+
+    <script>
+        // جافاسكريبت بسيط
+        document.addEventListener('DOMContentLoaded', function() {
+            // زر التحميل
+            const downloadBtn = document.getElementById('downloadBtn');
+            const progressBar = document.getElementById('progress');
+            
+            downloadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // محاكاة عملية التحميل
+                progressBar.style.width = '0%';
+                
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 20;
+                    if (progress > 100) {
+                        progress = 100;
+                        clearInterval(interval);
+                        
+                        // بعد اكتمال التحميل
+                        setTimeout(() => {
+                            alert('✅ تم تحميل التطبيق بنجاح!');
+                        }, 300);
+                    }
+                    progressBar.style.width = progress + '%';
+                }, 200);
+                
+                // في الواقع، سيكون هنا رابط تحميل حقيقي
+                // window.location.href = 'https://your-link.com/app.apk';
+            });
+            
+            // القائمة المتنقلة
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '80px';
+                    navLinks.style.right = '20px';
+                    navLinks.style.background = 'white';
+                    navLinks.style.padding = '1rem';
+                    navLinks.style.borderRadius = '10px';
+                    navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                }
+            });
+            
+            // إخفاء القائمة عند النقر خارجها
+            document.addEventListener('click', function(e) {
+                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+            
+            // إظهار شريط التقدم تلقائياً
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
