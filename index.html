@@ -139,12 +139,40 @@
             line-height: 1.6;
         }
         
-        /* أزرار التحميل */
-        .download-buttons {
+        /* زر تحميل رئيسي كبير */
+        .main-download-btn {
+            background: linear-gradient(135deg, #00A1E7, #0077B5);
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 15px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 35px rgba(0, 161, 231, 0.4);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .main-download-btn:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 161, 231, 0.6);
+        }
+        
+        .main-download-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        /* أزرار إضافية */
+        .secondary-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin: 2rem 0;
+            margin: 1rem 0;
             flex-wrap: wrap;
         }
         
@@ -171,17 +199,6 @@
         .btn-primary:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(157, 78, 221, 0.4);
-        }
-        
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
         }
         
         /* المميزات */
@@ -231,6 +248,64 @@
         .feature h3 {
             margin-bottom: 1rem;
             color: #333;
+        }
+        
+        /* قسم التحميل */
+        .download-section {
+            background: white;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 3rem auto;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .download-info {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .download-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .download-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* رسالة التنبيه */
+        .alert {
+            background: rgba(157, 78, 221, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
         }
         
         /* الفوتر */
@@ -306,115 +381,22 @@
             font-size: 0.9rem;
         }
         
-        /* قسم تحميل مباشر */
-        .direct-download {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin: 2rem auto;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            text-align: center;
-        }
-        
-        .download-options {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .download-option {
-            background: #f8f9ff;
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 2px solid rgba(157, 78, 221, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .download-option:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .download-option h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .download-option p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .mediafire-btn {
-            background: linear-gradient(135deg, #00A1E7, #0077B5);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            box-shadow: 0 10px 20px rgba(0, 161, 231, 0.3);
-            transition: all 0.3s;
-        }
-        
-        .mediafire-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 161, 231, 0.4);
-        }
-        
-        .direct-link {
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
-            transition: all 0.3s;
-        }
-        
-        .direct-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.4);
-        }
-        
-        .file-info {
-            background: #f0f7ff;
-            padding: 1rem;
+        /* شريط التحميل */
+        .progress-container {
+            width: 100%;
+            background: #eee;
             border-radius: 10px;
-            margin: 1rem 0;
-            border-right: 4px solid var(--primary);
+            margin: 2rem 0;
+            overflow: hidden;
+            height: 10px;
         }
         
-        .file-info p {
-            margin: 0.3rem 0;
-            color: #555;
-        }
-        
-        .file-info strong {
-            color: var(--primary);
-        }
-        
-        /* رسالة التنبيه */
-        .alert {
-            background: rgba(157, 78, 221, 0.1);
-            border: 2px solid var(--primary);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            text-align: center;
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00A1E7, #0077B5);
+            width: 0%;
+            transition: width 0.5s;
+            border-radius: 10px;
         }
         
         /* التجاوب مع الجوال */
@@ -441,28 +423,25 @@
                 font-size: 3rem;
             }
             
-            .download-buttons {
+            .main-download-btn {
+                padding: 1.2rem 2rem;
+                font-size: 1.2rem;
+                width: 90%;
+                justify-content: center;
+            }
+            
+            .secondary-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
             .btn {
-                width: 100%;
-                max-width: 300px;
+                width: 90%;
                 justify-content: center;
             }
             
-            .features {
+            .download-section {
                 padding: 2rem 1rem;
-            }
-            
-            .direct-download {
-                padding: 2rem 1rem;
-            }
-            
-            .mediafire-btn, .direct-link {
-                width: 100%;
-                justify-content: center;
             }
         }
         
@@ -477,22 +456,24 @@
             100% { transform: scale(1); }
         }
         
-        /* شريط التحميل */
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #eee;
+        /* إشعار */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
             border-radius: 10px;
-            margin: 1rem 0;
-            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+            animation: slideIn 0.3s ease;
         }
         
-        .progress {
-            height: 100%;
-            background: var(--gradient);
-            width: 0%;
-            transition: width 0.3s;
-            border-radius: 10px;
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
     </style>
 </head>
@@ -527,22 +508,26 @@
         <h1>Abdo TV</h1>
         <p>تطبيق البث المباشر الأفضل لمشاهدة القنوات الرياضية والترفيهية. جودة عالية، تحديثات مستمرة، وتجربة مشاهدة فريدة.</p>
         
-        <div class="download-buttons">
-            <a href="#direct-download" class="btn btn-primary">
-                <i class="fas fa-download"></i>
-                تحميل التطبيق
-            </a>
-            
-            <a href="#features" class="btn btn-secondary">
-                <i class="fas fa-star"></i>
-                المميزات
-            </a>
+        <!-- زر التحميل الرئيسي -->
+        <button class="main-download-btn" onclick="startDownload()">
+            <i class="fas fa-download"></i>
+            تحميل التطبيق الآن
+        </button>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
         
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
+        <div class="secondary-buttons">
+            <a href="#features" class="btn btn-primary">
+                <i class="fas fa-star"></i>
+                مميزات التطبيق
+            </a>
+            <a href="#instructions" class="btn" style="background: #f0f0f0; color: #555;">
+                <i class="fas fa-question-circle"></i>
+                تعليمات التثبيت
+            </a>
         </div>
-        <p style="color: #666; font-size: 0.9rem;">الإصدار 2.0 | حجم التطبيق: 25 ميجابايت</p>
     </section>
 
     <!-- قسم المميزات -->
@@ -576,70 +561,52 @@
         </div>
     </section>
 
-    <!-- قسم التحميل المباشر -->
-    <section class="direct-download" id="download">
+    <!-- قسم التحميل -->
+    <section class="download-section" id="download">
         <h2 style="color: var(--primary); margin-bottom: 1rem;">تحميل Abdo TV</h2>
-        <p style="color: #666; margin-bottom: 2rem;">اختر طريقة التحميل المناسبة لك</p>
+        <p style="color: #666; margin-bottom: 2rem;">الإصدار 2.0 | حجم التطبيق: 25 ميجابايت</p>
         
-        <div class="file-info">
-            <p><strong>اسم التطبيق:</strong> Abdo TV</p>
-            <p><strong>الإصدار:</strong> 2.0 (أحدث إصدار)</p>
-            <p><strong>الحجم:</strong> 25 ميجابايت</p>
-            <p><strong>التحديث الأخير:</strong> 2024</p>
+        <div class="download-info">
+            <h3>📁 رابط التحميل المباشر</h3>
+            <p style="color: #555; word-break: break-all; font-size: 0.9rem; margin: 1rem 0;">
+                https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file
+            </p>
+            <button class="btn btn-primary" onclick="copyDownloadLink()" style="margin-top: 1rem;">
+                <i class="fas fa-copy"></i>
+                نسخ الرابط
+            </button>
         </div>
         
-        <div class="download-options">
-            <div class="download-option">
-                <h3>📥 تحميل عبر MediaFire</h3>
-                <p>تحميل آمن وسريع من خلال منصة MediaFire</p>
-                <a href="https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file" 
-                   class="mediafire-btn" 
-                   target="_blank"
-                   id="mediafireBtn">
-                    <i class="fab fa-dropbox"></i>
-                    تحميل من MediaFire
-                </a>
-                <p style="color: #888; font-size: 0.9rem; margin-top: 0.5rem;">ينقلك مباشرة إلى صفحة التحميل</p>
+        <div class="download-stats">
+            <div class="stat">
+                <span class="stat-number" id="downloadCount">10,254</span>
+                <span class="stat-label">تحميل</span>
             </div>
-            
-            <div class="download-option">
-                <h3>⚡ تحميل مباشر</h3>
-                <p>بدء التحميل مباشرة بدون انتظار</p>
-                <a href="https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file" 
-                   class="direct-link" 
-                   download="AbdoTV_v2.0.apk"
-                   id="directBtn">
-                    <i class="fas fa-bolt"></i>
-                    تحميل مباشر
-                </a>
-                <p style="color: #888; font-size: 0.9rem; margin-top: 0.5rem;">يبدأ التحميل فوراً في جهازك</p>
+            <div class="stat">
+                <span class="stat-number">4.8</span>
+                <span class="stat-label">تقييم</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">رضا العملاء</span>
             </div>
         </div>
         
-        <div class="alert">
-            <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem;"></i>
-            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">تعليمات التثبيت</h3>
-            <p style="color: #666; margin-bottom: 0.5rem;">1. بعد التحميل، افتح ملف APK</p>
-            <p style="color: #666; margin-bottom: 0.5rem;">2. إذا ظهرت رسالة "مصادر غير معروفة"، اضغط على "إعدادات"</p>
-            <p style="color: #666;">3. فعّل الخيار "السماح من هذا المصدر" ثم اضغط "موافق"</p>
-        </div>
+        <!-- زر تحميل بديل -->
+        <button class="main-download-btn" onclick="startDownload()" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+            <i class="fas fa-download"></i>
+            اضغط هنا للتحميل المباشر
+        </button>
         
-        <div style="margin-top: 2rem;">
-            <h3 style="color: #555; margin-bottom: 1rem;">معلومات التطبيق</h3>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <div style="text-align: center;">
-                    <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 1.5rem;"></i>
-                    <p style="margin-top: 0.5rem; color: #666;">خالي من الفيروسات</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-clock" style="color: #2196F3; font-size: 1.5rem;"></i>
-                    <p style="margin-top: 0.5rem; color: #666;">محدث باستمرار</p>
-                </div>
-                <div style="text-align: center;">
-                    <i class="fas fa-headset" style="color: #9D4EDD; font-size: 1.5rem;"></i>
-                    <p style="margin-top: 0.5rem; color: #666;">دعم فني متوفر</p>
-                </div>
-            </div>
+        <div class="alert" id="instructions">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">تعليمات التثبيت</h3>
+            <p style="color: #666; text-align: right; line-height: 1.8;">
+                1. بعد الضغط على "تحميل"، سيتم نقلك إلى صفحة MediaFire<br>
+                2. انتظر 5 ثواني ثم اضغط على "Download"<br>
+                3. افتح ملف APK بعد التحميل<br>
+                4. فعّل "السماح من هذا المصدر" إذا طُلب منك<br>
+                5. استمتع بالتطبيق! 🎉
+            </p>
         </div>
     </section>
 
@@ -667,8 +634,8 @@
                 <ul class="footer-links">
                     <li><a href="#features">المميزات</a></li>
                     <li><a href="#download">تحميل التطبيق</a></li>
-                    <li><a href="#support">الدعم الفني</a></li>
-                    <li><a href="#privacy">سياسة الخصوصية</a></li>
+                    <li><a href="#instructions">تعليمات التثبيت</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
                 </ul>
             </div>
             
@@ -684,53 +651,93 @@
         
         <div class="copyright">
             <p>© 2024 Abdo TV. جميع الحقوق محفوظة. | الإصدار 2.0</p>
-            <p style="margin-top: 0.5rem; font-size: 0.8rem;">رابط التحميل: https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file</p>
         </div>
     </footer>
 
+    <!-- إشعار -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">جاري التوجيه إلى MediaFire...</span>
+    </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // روابط التحميل - رابط MediaFire الخاص بك
-            const mediafireUrl = "https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file";
-            const directDownloadUrl = "https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file";
+        // رابط MediaFire الخاص بك
+        const MEDIAFIRE_URL = "https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file";
+        
+        // دالة التحميل الرئيسية
+        function startDownload() {
+            // إظهار الإشعار
+            showNotification("جاري التوجيه إلى MediaFire...");
             
-            // عناصر التحكم
-            const mediafireBtn = document.getElementById('mediafireBtn');
-            const directBtn = document.getElementById('directBtn');
-            const progressBar = document.getElementById('progress');
+            // محاكاة شريط التقدم
+            simulateProgress();
             
-            // تعيين الروابط
-            mediafireBtn.href = mediafireUrl;
-            directBtn.href = directDownloadUrl;
-            
-            // تتبع النقرات
-            mediafireBtn.addEventListener('click', function() {
-                alert('🔗 جاري التوجيه إلى صفحة MediaFire...');
-                // يمكنك إضافة إحصائيات هنا
-            });
-            
-            directBtn.addEventListener('click', function() {
-                // محاكاة التحميل المباشر
-                progressBar.style.width = '0%';
-                alert('⚡ بدء التحميل المباشر...');
+            // الانتظار قليلاً ثم التوجيه
+            setTimeout(() => {
+                // فتح الرابط في نافذة جديدة
+                window.open(MEDIAFIRE_URL, '_blank');
                 
-                let progress = 0;
-                const interval = setInterval(() => {
-                    progress += Math.random() * 25;
-                    if (progress > 100) {
-                        progress = 100;
-                        clearInterval(interval);
-                        
-                        setTimeout(() => {
-                            alert('✅ تم تحميل التطبيق بنجاح!');
-                            // في الواقع، سيبدأ التحميل مباشرة بسبب خاصية download
-                        }, 500);
-                    }
-                    progressBar.style.width = progress + '%';
-                }, 150);
-            });
+                // تحديث عداد التحميلات
+                updateDownloadCount();
+                
+                // تغيير رسالة الإشعار
+                setTimeout(() => {
+                    showNotification("تم التوجيه بنجاح! اضغط على Download في صفحة MediaFire");
+                }, 1000);
+            }, 1500);
+        }
+        
+        // محاكاة شريط التقدم
+        function simulateProgress() {
+            const progressBar = document.getElementById('progressBar');
+            let width = 0;
+            progressBar.style.width = '0%';
             
-            // القائمة المتنقلة
+            const interval = setInterval(() => {
+                width += 10;
+                progressBar.style.width = width + '%';
+                
+                if (width >= 100) {
+                    clearInterval(interval);
+                    progressBar.style.width = '100%';
+                }
+            }, 100);
+        }
+        
+        // إظهار الإشعار
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.style.display = 'flex';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        // نسخ رابط التحميل
+        function copyDownloadLink() {
+            navigator.clipboard.writeText(MEDIAFIRE_URL)
+                .then(() => {
+                    showNotification("تم نسخ رابط التحميل!");
+                })
+                .catch(err => {
+                    showNotification("تعذر النسخ، يرجى المحاولة يدوياً");
+                });
+        }
+        
+        // تحديث عداد التحميلات
+        function updateDownloadCount() {
+            const downloadCountElement = document.getElementById('downloadCount');
+            let count = parseInt(downloadCountElement.textContent.replace(/,/g, ''));
+            count += 1;
+            downloadCountElement.textContent = count.toLocaleString();
+        }
+        
+        // القائمة المتنقلة
+        document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
             
@@ -757,21 +764,20 @@
                 }
             });
             
-            // إظهار شريط التقدم عند التمرير للقسم
+            // إضافة مؤثرات عند التمرير
             window.addEventListener('scroll', function() {
-                const downloadSection = document.getElementById('download');
-                const rect = downloadSection.getBoundingClientRect();
+                const scrollPosition = window.scrollY;
+                const progressBar = document.getElementById('progressBar');
                 
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                if (scrollPosition > 100) {
                     progressBar.style.width = '100%';
                 }
             });
-            
-            // تحميل أولي لشريط التقدم
-            setTimeout(() => {
-                progressBar.style.width = '100%';
-            }, 1000);
         });
+        
+        // فتح MediaFire مباشرة عند تحميل الصفحة (اختياري)
+        // يمكنك إلغاء التعليق عن السطر التالي إذا أردت
+        // window.onload = function() { console.log("Abdo TV Download Page Ready!"); }
     </script>
 </body>
 </html>
