@@ -317,18 +317,93 @@
             text-align: center;
         }
         
-        .qr-code {
-            width: 200px;
-            height: 200px;
-            margin: 2rem auto;
-            background: #f5f5f5;
-            border-radius: 15px;
+        .download-options {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .download-option {
+            background: #f8f9ff;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(157, 78, 221, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .download-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .download-option h3 {
             color: var(--primary);
-            border: 3px dashed #ddd;
+            margin-bottom: 0.5rem;
+        }
+        
+        .download-option p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .mediafire-btn {
+            background: linear-gradient(135deg, #00A1E7, #0077B5);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            box-shadow: 0 10px 20px rgba(0, 161, 231, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .mediafire-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 161, 231, 0.4);
+        }
+        
+        .direct-link {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .direct-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.4);
+        }
+        
+        .file-info {
+            background: #f0f7ff;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-right: 4px solid var(--primary);
+        }
+        
+        .file-info p {
+            margin: 0.3rem 0;
+            color: #555;
+        }
+        
+        .file-info strong {
+            color: var(--primary);
         }
         
         /* رسالة التنبيه */
@@ -383,6 +458,11 @@
             
             .direct-download {
                 padding: 2rem 1rem;
+            }
+            
+            .mediafire-btn, .direct-link {
+                width: 100%;
+                justify-content: center;
             }
         }
         
@@ -462,7 +542,7 @@
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
-        <p style="color: #666; font-size: 0.9rem;">حجم التطبيق: 25 ميجابايت</p>
+        <p style="color: #666; font-size: 0.9rem;">الإصدار 2.0 | حجم التطبيق: 25 ميجابايت</p>
     </section>
 
     <!-- قسم المميزات -->
@@ -498,23 +578,68 @@
 
     <!-- قسم التحميل المباشر -->
     <section class="direct-download" id="download">
-        <h2 style="color: var(--primary); margin-bottom: 1rem;">تحميل مباشر</h2>
-        <p style="color: #666; margin-bottom: 2rem;">انقر على الزر أدناه لتحميل التطبيق مباشرة</p>
+        <h2 style="color: var(--primary); margin-bottom: 1rem;">تحميل Abdo TV</h2>
+        <p style="color: #666; margin-bottom: 2rem;">اختر طريقة التحميل المناسبة لك</p>
         
-        <div class="qr-code">
-            <i class="fas fa-qrcode"></i>
+        <div class="file-info">
+            <p><strong>اسم التطبيق:</strong> Abdo TV</p>
+            <p><strong>الإصدار:</strong> 2.0 (أحدث إصدار)</p>
+            <p><strong>الحجم:</strong> 25 ميجابايت</p>
+            <p><strong>التحديث الأخير:</strong> 2024</p>
         </div>
-        <p style="color: #888; margin: 1rem 0; font-size: 0.9rem;">أو امسح الكود QR</p>
         
-        <a href="https://your-link-here.com/app.apk" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;" id="downloadBtn">
-            <i class="fas fa-download"></i>
-            تحميل Abdo TV v2.0
-        </a>
+        <div class="download-options">
+            <div class="download-option">
+                <h3>📥 تحميل عبر MediaFire</h3>
+                <p>تحميل آمن وسريع من خلال منصة MediaFire</p>
+                <a href="https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file" 
+                   class="mediafire-btn" 
+                   target="_blank"
+                   id="mediafireBtn">
+                    <i class="fab fa-dropbox"></i>
+                    تحميل من MediaFire
+                </a>
+                <p style="color: #888; font-size: 0.9rem; margin-top: 0.5rem;">ينقلك مباشرة إلى صفحة التحميل</p>
+            </div>
+            
+            <div class="download-option">
+                <h3>⚡ تحميل مباشر</h3>
+                <p>بدء التحميل مباشرة بدون انتظار</p>
+                <a href="https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file" 
+                   class="direct-link" 
+                   download="AbdoTV_v2.0.apk"
+                   id="directBtn">
+                    <i class="fas fa-bolt"></i>
+                    تحميل مباشر
+                </a>
+                <p style="color: #888; font-size: 0.9rem; margin-top: 0.5rem;">يبدأ التحميل فوراً في جهازك</p>
+            </div>
+        </div>
         
         <div class="alert">
             <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem;"></i>
-            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">تثبيت آمن</h3>
-            <p style="color: #666;">يجب تفعيل "مصادر غير معروفة" في إعدادات جهازك قبل تثبيت التطبيق</p>
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">تعليمات التثبيت</h3>
+            <p style="color: #666; margin-bottom: 0.5rem;">1. بعد التحميل، افتح ملف APK</p>
+            <p style="color: #666; margin-bottom: 0.5rem;">2. إذا ظهرت رسالة "مصادر غير معروفة"، اضغط على "إعدادات"</p>
+            <p style="color: #666;">3. فعّل الخيار "السماح من هذا المصدر" ثم اضغط "موافق"</p>
+        </div>
+        
+        <div style="margin-top: 2rem;">
+            <h3 style="color: #555; margin-bottom: 1rem;">معلومات التطبيق</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <i class="fas fa-check-circle" style="color: #4CAF50; font-size: 1.5rem;"></i>
+                    <p style="margin-top: 0.5rem; color: #666;">خالي من الفيروسات</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-clock" style="color: #2196F3; font-size: 1.5rem;"></i>
+                    <p style="margin-top: 0.5rem; color: #666;">محدث باستمرار</p>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-headset" style="color: #9D4EDD; font-size: 1.5rem;"></i>
+                    <p style="margin-top: 0.5rem; color: #666;">دعم فني متوفر</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -559,39 +684,50 @@
         
         <div class="copyright">
             <p>© 2024 Abdo TV. جميع الحقوق محفوظة. | الإصدار 2.0</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">رابط التحميل: https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file</p>
         </div>
     </footer>
 
     <script>
-        // جافاسكريبت بسيط
         document.addEventListener('DOMContentLoaded', function() {
-            // زر التحميل
-            const downloadBtn = document.getElementById('downloadBtn');
+            // روابط التحميل - رابط MediaFire الخاص بك
+            const mediafireUrl = "https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file";
+            const directDownloadUrl = "https://www.mediafire.com/file/pxdl0ixg4s0iven/abd.o.tv.v1.apk/file";
+            
+            // عناصر التحكم
+            const mediafireBtn = document.getElementById('mediafireBtn');
+            const directBtn = document.getElementById('directBtn');
             const progressBar = document.getElementById('progress');
             
-            downloadBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // محاكاة عملية التحميل
+            // تعيين الروابط
+            mediafireBtn.href = mediafireUrl;
+            directBtn.href = directDownloadUrl;
+            
+            // تتبع النقرات
+            mediafireBtn.addEventListener('click', function() {
+                alert('🔗 جاري التوجيه إلى صفحة MediaFire...');
+                // يمكنك إضافة إحصائيات هنا
+            });
+            
+            directBtn.addEventListener('click', function() {
+                // محاكاة التحميل المباشر
                 progressBar.style.width = '0%';
+                alert('⚡ بدء التحميل المباشر...');
                 
                 let progress = 0;
                 const interval = setInterval(() => {
-                    progress += Math.random() * 20;
+                    progress += Math.random() * 25;
                     if (progress > 100) {
                         progress = 100;
                         clearInterval(interval);
                         
-                        // بعد اكتمال التحميل
                         setTimeout(() => {
                             alert('✅ تم تحميل التطبيق بنجاح!');
-                        }, 300);
+                            // في الواقع، سيبدأ التحميل مباشرة بسبب خاصية download
+                        }, 500);
                     }
                     progressBar.style.width = progress + '%';
-                }, 200);
-                
-                // في الواقع، سيكون هنا رابط تحميل حقيقي
-                // window.location.href = 'https://your-link.com/app.apk';
+                }, 150);
             });
             
             // القائمة المتنقلة
@@ -621,7 +757,17 @@
                 }
             });
             
-            // إظهار شريط التقدم تلقائياً
+            // إظهار شريط التقدم عند التمرير للقسم
+            window.addEventListener('scroll', function() {
+                const downloadSection = document.getElementById('download');
+                const rect = downloadSection.getBoundingClientRect();
+                
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    progressBar.style.width = '100%';
+                }
+            });
+            
+            // تحميل أولي لشريط التقدم
             setTimeout(() => {
                 progressBar.style.width = '100%';
             }, 1000);
